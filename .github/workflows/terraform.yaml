@@ -7,7 +7,7 @@ on:
       - main
   pull_request:
     branches:
-      - main
+      - terraform/**
 
 # Define the jobs that will run within this workflow
 jobs:

@@ -7,9 +7,9 @@
 #
 # Usage:
 #
-#   ./scripts/delete.sh
+#   ./scripts/kubernetes/delete.sh
 #
 set -u # or set -o nounset
 : "$NAME"
 
-envsubst < ./scripts/${NAME}.yaml | kubectl delete -f -
+envsubst < ./scripts/kubernetes/${NAME}.yaml | kubectl delete -f -

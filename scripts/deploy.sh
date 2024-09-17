@@ -11,7 +11,7 @@
 #
 # Usage:
 #
-#   ./scripts/deploy.sh
+#   ./scripts/kubernetes/deploy.sh
 #
 
 set -u # or set -o nounset
@@ -19,4 +19,4 @@ set -u # or set -o nounset
 : "$NAME"
 : "$VERSION"
 
-envsubst < ./scripts/${NAME}.yaml | kubectl apply -f -
+envsubst < ./scripts/kubernetes/${NAME}.yaml | kubectl apply -f -

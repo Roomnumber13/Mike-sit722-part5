@@ -9,6 +9,10 @@ on:
     branches:
       - terraform/**
 
+ # Allows deployment to be invoked manually through the GitHub Actions user interface.
+  
+  workflow_dispatch: 
+
 # Define the jobs that will run within this workflow
 jobs:
   terraform:

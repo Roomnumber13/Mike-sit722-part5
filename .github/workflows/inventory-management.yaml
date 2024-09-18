@@ -32,7 +32,7 @@ jobs:
       CONTAINER_REGISTRY: ${{ secrets.CONTAINER_REGISTRY }}
       REGISTRY_UN: ${{ secrets.REGISTRY_UN }}
       REGISTRY_PW: ${{ secrets.REGISTRY_PW  }}
-      NAME: inventory_management
+      NAME: inventory-deployment
       DIRECTORY: inventory_management
 
     steps:
@@ -41,12 +41,19 @@ jobs:
       - uses: actions/checkout@v3
 
       #
+      #Override permission to build images
+      - name: Make build-image.sh executable
+        run: chmod +x ./scripts/build-image.sh
+
       # Builds the Docker image.
       #
       - name: Build
         run: ./scripts/build-image.sh
 
-      #
+      #Override permission to push images
+      - name: Make push-image.sh executable
+        run: chmod +x ./scripts/push-image.sh
+
       # Publishes the Docker image to the container registry.
       #
       - name: Publish
@@ -62,7 +69,10 @@ jobs:
           base64-kube-config: ${{ secrets.KUBE_CONFIG }}
           kubectl-version: v1.24.2
       
-      #
+      #Override permission to deploy images
+      - name: Make deploy.sh executable
+        run: chmod +x ./scripts/deploy.sh
+
       # Expands the configuration template and deploys the microservice.
       #
       - name: Deploy

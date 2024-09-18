@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: book-catalog
+  name: inventory-management
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: book-catalog
+      app: inventory-management
   template:
     metadata:
       labels:
-        app: book-catalog
+        app: inventory-management
     spec:
       containers:
-      - name: book-catalog
-        image: $CONTAINER_REGISTRY/book-catalog:$VERSION
+      - name: inventory-management
+        image: $CONTAINER_REGISTRY/inventory-management:$VERSION
         ports:
-        - containerPort: 8000
+        - containerPort: 8002
         env:
         - name: DATABASE_URL
           value: "postgresql://sit722_part5_ljnw_user:cK0Fu1FxXZ5CEemkq6G2tkTCPu5FFQdl@dpg-crkugp5umphs73ark0q0-a.singapore-postgres.render.com/sit722_part5_ljnw"
@@ -26,13 +26,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: book-catalog-service
+  name: inventory-management-service
 spec:
   selector:
-    app: book-catalog
+    app: inventory-management
   ports:
     - protocol: TCP
-      port: 8000
-      targetPort: 8000
+      port: 8002
+      targetPort: 8002
   type: LoadBalancer
-

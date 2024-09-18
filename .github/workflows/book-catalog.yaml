@@ -40,7 +40,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE.
       - uses: actions/checkout@v3
 
-      #
+      #Override permission to build images
+      - name: Make build-image.sh executable
+        run: chmod +x ./scripts/build-image.sh
+        
       # Builds the Docker image.
       #
       - name: Build

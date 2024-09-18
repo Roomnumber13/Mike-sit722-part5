@@ -43,13 +43,16 @@ jobs:
       #Override permission to build images
       - name: Make build-image.sh executable
         run: chmod +x ./scripts/build-image.sh
-        
+
       # Builds the Docker image.
       #
       - name: Build
         run: ./scripts/build-image.sh
 
-      #
+      #Override permission to push images
+      - name: Make build-image.sh executable
+        run: chmod +x ./scripts/push-image.sh
+
       # Publishes the Docker image to the container registry.
       #
       - name: Publish

@@ -16,4 +16,4 @@ jobs:
       - uses: actions/checkout@v3        
  
       - name: Run the shell script       
-        run: ./index.sh   
+        run: ./scripts/index.sh   

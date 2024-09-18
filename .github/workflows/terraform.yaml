@@ -2,12 +2,6 @@ name: Terraform Infrastructure Deployment
 
 # Trigger the workflow on push or pull requests to the main branch
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - terraform/**
 
  # Allows deployment to be invoked manually through the GitHub Actions user interface.
   
@@ -22,12 +16,11 @@ jobs:
     # Define environment variables (replace placeholders with your actual values)
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}        # Azure Client ID (for Azure)
-      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}# Azure Client Secret
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }} # Azure Client Secret
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }} # Azure Subscription ID
-      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}        # Azure Tenant ID
-
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }} # AWS Access Key (for AWS)
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # AWS Secret Access Key
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}        
+      NAME: terraform
+      DIRECTORY: terraform
 
     steps:
       # Step 1: Checkout the repository
@@ -50,5 +43,4 @@ jobs:
 
       # Step 5: Terraform Apply (only runs on push, not pull requests)
       - name: Terraform Apply
-        if: github.event_name == 'push'
         run: terraform apply -auto-approve

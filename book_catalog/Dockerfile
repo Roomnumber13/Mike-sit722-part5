@@ -1,4 +1,4 @@
-# Dockerfile for book_catalog microservice
+# Dockerfile for book_catalog microservices
 FROM --platform=linux/amd64 python:3.10-slim
 
 WORKDIR /app

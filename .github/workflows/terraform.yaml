@@ -2,6 +2,12 @@ name: Terraform Infrastructure Deployment
 
 # Trigger the workflow on push or pull requests to the main branch
 on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
 
  # Allows deployment to be invoked manually through the GitHub Actions user interface.
   

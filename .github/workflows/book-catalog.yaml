@@ -1,4 +1,4 @@
-name: Terraform Infrastructure Deployment
+name: book-catalog Deployment
 
 # Trigger the workflow on push or pull requests to the main branch
 on:

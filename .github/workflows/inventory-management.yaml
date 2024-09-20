@@ -1,4 +1,4 @@
-name: Terraform Infrastructure Deployment
+name: inventory-management Deployment
 
 # Trigger the workflow on push or pull requests to the main branch
 on:

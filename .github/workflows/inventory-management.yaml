@@ -15,7 +15,7 @@ on:
     branches:
       - main
     paths:
-      - inventory_management/**
+      - 'inventory_management/**'
 
   #
   # Allows deployment to be invoked manually through the GitHub Actions user interface.

@@ -33,6 +33,7 @@ jobs:
       REGISTRY_UN: ${{ secrets.REGISTRY_UN }}
       REGISTRY_PW: ${{ secrets.REGISTRY_PW  }}
       NAME: inventory-management
+      FILENAME: inventory-deployment
       DIRECTORY: inventory_management
 
     steps:

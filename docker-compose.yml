@@ -5,9 +5,9 @@ services:
     image: postgres:latest
     container_name: db
     environment:
-      POSTGRES_USER: sit722_part5_ljnw_user
-      POSTGRES_PASSWORD: cK0Fu1FxXZ5CEemkq6G2tkTCPu5FFQdl
-      POSTGRES_DB: sit722_part5_ljnw 
+      POSTGRES_USER: m224246429_user
+      POSTGRES_PASSWORD: kFXWFcBhlWt8poRTVgJJMnitxoSgXaIc
+      POSTGRES_DB: m224246429 
     ports:
       - "5432:5432"
     restart: "on-failure"
@@ -23,7 +23,7 @@ services:
       - "8000:8000"
     environment:
       - PORT=8000
-      - DATABASE_URL=postgresql://sit722_part5_ljnw_user:cK0Fu1FxXZ5CEemkq6G2tkTCPu5FFQdl@dpg-crkugp5umphs73ark0q0-a.singapore-postgres.render.com/sit722_part5_ljnw
+      - DATABASE_URL=postgresql://m224246429_user:kFXWFcBhlWt8poRTVgJJMnitxoSgXaIc@dpg-crna0c68ii6s73en725g-a.singapore-postgres.render.com/m224246429
     restart: "on-failure"
 
   inventory-management: 
@@ -37,7 +37,7 @@ services:
       - "8002:8002"
     environment:
       - PORT=8002
-      - DATABASE_URL=postgresql://sit722_part5_ljnw_user:cK0Fu1FxXZ5CEemkq6G2tkTCPu5FFQdl@dpg-crkugp5umphs73ark0q0-a.singapore-postgres.render.com/sit722_part5_ljnw
+      - DATABASE_URL=postgresql://m224246429_user:kFXWFcBhlWt8poRTVgJJMnitxoSgXaIc@dpg-crna0c68ii6s73en725g-a.singapore-postgres.render.com/m224246429
     depends_on:
       - db
     restart: "on-failure"

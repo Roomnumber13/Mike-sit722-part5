@@ -23,13 +23,13 @@ on:
   workflow_dispatch: 
 env:
   # Azure application (client) ID
-  AZURE_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+  AZURE_CLIENT_ID: "d1a9a45f-8edd-43e3-b9c8-dcb57fe7a26b"
 
   # Azure subscription ID
-  AZURE_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  AZURE_SUBSCRIPTION_ID: "78d18c7f-89fa-457f-a867-9b29599a230c"
 
   # Azure Active Directory tenant ID
-  AZURE_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+  AZURE_TENANT_ID: "2625129d-99a2-4df5-988e-5c5d07e7d0fb"
 
   # Azure Resource Group to use for deploying resources
   AZURE_RESOURCE_GROUP: ""

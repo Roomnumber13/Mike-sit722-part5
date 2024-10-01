@@ -21,7 +21,18 @@ on:
   # Allows deployment to be invoked manually through the GitHub Actions user interface.
   #
   workflow_dispatch: 
+env:
+  # Azure application (client) ID
+  AZURE_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
 
+  # Azure subscription ID
+  AZURE_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+
+  # Azure Active Directory tenant ID
+  AZURE_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+
+  # Azure Resource Group to use for deploying resources
+  AZURE_RESOURCE_GROUP: ""
 jobs:
 
   deploy:
@@ -38,7 +49,16 @@ jobs:
 
     steps:
       
-      # Checks-out your repository under $GITHUB_WORKSPACE.
+      - name: Checkout Branch
+        uses: actions/checkout@v3
+      - name: "Az CLI login"
+        uses: Azure/login@v2.1.0
+        with:
+            client-id: ${{ env.AZURE_CLIENT_ID }}
+            tenant-id: ${{ env.AZURE_TENANT_ID }}
+            subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
+            
+    # Checks-out your repository under $GITHUB_WORKSPACE.
       - uses: actions/checkout@v3
 
       #

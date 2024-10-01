@@ -20,5 +20,5 @@ set -u # or set -o nounset
 : "$REGISTRY_PW"
 : "$NAME"
 
-echo $REGISTRY_PW | docker login $CONTAINER_REGISTRY --username $REGISTRY_UN --password-stdin
+echo $REGISTRY_PW | az acr login --name $CONTAINER_REGISTRY
 docker push $CONTAINER_REGISTRY/$NAME:$VERSION

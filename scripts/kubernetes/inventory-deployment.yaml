@@ -19,7 +19,7 @@ spec:
         - containerPort: 8002
         env:
         - name: DATABASE_URL
-          value: "postgresql://m224246429_user:kFXWFcBhlWt8poRTVgJJMnitxoSgXaIc@dpg-crna0c68ii6s73en725g-a.singapore-postgres.render.com/m224246429"
+          value: "postgresql://sit722_part5_gcgd_user:QUgm113XPDhaZXPJyuKK3cdjMsyQFEnA@dpg-crtnu1l2ng1s73c9hepg-a.singapore-postgres.render.com/sit722_part5_gcgd"
 
 ---
 

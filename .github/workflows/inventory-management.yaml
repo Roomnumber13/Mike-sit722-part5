@@ -61,7 +61,8 @@ jobs:
             tenant-id: ${{ env.AZURE_TENANT_ID }}
             subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
 
-      env:
+      - name: Get AKS credentials
+        env:
           AKS_CLUSTER_NAME: M224246429
         run: |
           az aks get-credentials --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --name ${{ env.AKS_CLUSTER_NAME }}

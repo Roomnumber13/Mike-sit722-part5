@@ -32,7 +32,7 @@ env:
   AZURE_TENANT_ID: "2625129d-99a2-4df5-988e-5c5d07e7d0fb"
 
   # Azure Resource Group to use for deploying resources
-  AZURE_RESOURCE_GROUP: ""
+  AZURE_RESOURCE_GROUP: "M224246429"
 
 jobs:
 
@@ -60,9 +60,10 @@ jobs:
             client-id: ${{ env.AZURE_CLIENT_ID }}
             tenant-id: ${{ env.AZURE_TENANT_ID }}
             subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
-      
-      # Checks-out your repository under $GITHUB_WORKSPACE.
-      - uses: actions/checkout@v3
+      env:
+          AKS_CLUSTER_NAME: M224246429
+        run: |
+          az aks get-credentials --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --name ${{ env.AKS_CLUSTER_NAME }}
 
       #Override permission to build images
       - name: Make build-image.sh executable
